@@ -1,22 +1,20 @@
-# Heart Disease Prediction using KNN
+# Heart Disease Prediction using Django & KNN
 
-This project uses a K-Nearest Neighbors (KNN) classifier to predict the presence of heart disease based on medical attributes. A Streamlit web app provides an interactive interface for users to input data and get instant predictions.
-
-## Dataset
-- **Source**: Cleveland Heart Disease dataset (UCI)
-- **File**: `heart.csv` included in this repository (303 samples, 13 features)
-- **Target**: 1 = disease, 0 = no disease
+This is a professional web application built with Django that predicts the presence of heart disease using a K-Nearest Neighbors (KNN) machine learning model. The app features a clean, hospital-themed UI with Bootstrap 5 and custom CSS.
 
 ## Features
-- **Algorithm**: KNN with k=5
+
+- **ML Model**: KNN classifier trained on the Cleveland Heart Disease dataset.
+- **Web Framework**: Django 4.2 with robust backend.
+- **Responsive UI**: Bootstrap 5 with custom hospital theme.
+- **Real-time Prediction**: Users input medical data and get instant results.
+- **Probability Display**: Shows probability of heart disease with a visual bar.
+
+## Dataset
+
+- **Source**: UCI Machine Learning Repository (Cleveland)
+- **Samples**: 303
+- **Features**: 13 medical attributes + target (0 = no disease, 1 = disease)
 - **Accuracy**: ~85% on test set
-- **Web App**: Built with Streamlit, deployed on Streamlit Community Cloud
 
-## Live Demo
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://your-app-url.streamlit.app)
-
-## How to Run Locally
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/heart-disease-knn.git
-   cd heart-disease-knn
+## Project Structure
