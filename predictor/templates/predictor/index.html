@@ -1,0 +1,104 @@
+{% extends 'predictor/base.html' %}
+{% load static %}
+
+{% block title %}Heart Disease Predictor - Input{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <div class="input-card">
+            <h3 class="section-title"><i class="fas fa-user"></i> Patient Demographics</h3>
+            <form method="post" action="{% url 'result' %}">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="{{ form.age.id_for_label }}" class="form-label">Age</label>
+                        {{ form.age }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="{{ form.sex.id_for_label }}" class="form-label">Sex</label>
+                        {{ form.sex }}
+                    </div>
+                </div>
+
+                <h3 class="section-title mt-4"><i class="fas fa-heart"></i> Clinical Measurements</h3>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="{{ form.trestbps.id_for_label }}" class="form-label">Resting BP</label>
+                        {{ form.trestbps }}
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="{{ form.chol.id_for_label }}" class="form-label">Cholesterol</label>
+                        {{ form.chol }}
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="{{ form.thalach.id_for_label }}" class="form-label">Max Heart Rate</label>
+                        {{ form.thalach }}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="{{ form.cp.id_for_label }}" class="form-label">Chest Pain Type</label>
+                        {{ form.cp }}
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="{{ form.fbs.id_for_label }}" class="form-label">Fasting Blood Sugar</label>
+                        {{ form.fbs }}
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="{{ form.exang.id_for_label }}" class="form-label">Exercise Angina</label>
+                        {{ form.exang }}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="{{ form.restecg.id_for_label }}" class="form-label">Resting ECG</label>
+                        {{ form.restecg }}
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="{{ form.oldpeak.id_for_label }}" class="form-label">ST Depression</label>
+                        {{ form.oldpeak }}
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="{{ form.slope.id_for_label }}" class="form-label">ST Slope</label>
+                        {{ form.slope }}
+                    </div>
+                </div>
+
+                <h3 class="section-title mt-4"><i class="fas fa-flask"></i> Additional Factors</h3>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="{{ form.ca.id_for_label }}" class="form-label">Major Vessels</label>
+                        {{ form.ca }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="{{ form.thal.id_for_label }}" class="form-label">Thalassemia</label>
+                        {{ form.thal }}
+                    </div>
+                </div>
+
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-search"></i> ASSESS RISK</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="sidebar-info">
+            <h4><i class="fas fa-info-circle"></i> About</h4>
+            <p>This tool uses a K-Nearest Neighbors (KNN) machine learning model trained on the Cleveland Heart Disease dataset.</p>
+        </div>
+        <div class="sidebar-info">
+            <h4><i class="fas fa-database"></i> Dataset</h4>
+            <p><strong>Source:</strong> UCI<br><strong>Samples:</strong> 303<br><strong>Accuracy:</strong> ~85%</p>
+        </div>
+        <div class="sidebar-info">
+            <h4><i class="fas fa-shield-alt"></i> Disclaimer</h4>
+            <p>For educational purposes only. Always consult a doctor.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
