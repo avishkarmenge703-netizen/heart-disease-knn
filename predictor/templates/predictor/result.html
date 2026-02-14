@@ -1,0 +1,25 @@
+{% extends 'predictor/base.html' %}
+
+{% block title %}Prediction Result{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="result-box {% if prediction == 1 %}result-high{% else %}result-low{% endif %}">
+            {% if prediction == 1 %}
+                <span style="font-size:3rem;">⚠️</span>
+                <div class="result-text" style="color:#ef4444;">High Risk</div>
+            {% else %}
+                <span style="font-size:3rem;">✅</span>
+                <div class="result-text" style="color:#10b981;">Low Risk</div>
+            {% endif %}
+            <p style="font-size:1.2rem;">Probability of heart disease: <strong>{{ probability_yes|floatformat:2 }}%</strong></p>
+            <div class="probability-bar">
+                <div class="probability-fill" style="width:{{ probability_yes }}%;"></div>
+            </div>
+            <p class="text-muted">This assessment is based on a KNN model with 85% accuracy. Always consult a doctor.</p>
+            <a href="{% url 'index' %}" class="btn btn-outline-primary mt-3"><i class="fas fa-arrow-left"></i> New Prediction</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
